@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ensal’Armelo - QR Menú</title>
+  <link rel="shortcut icon" href="img/logo-sin-fondo-ensalarmelo.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap">
+  <style>
+    :root {
+      --color-principal: #2e7d32; /* verde oscuro natural */
+      --color-acento: #81c784;    /* verde claro suave */
+      --color-fondo: #e8f5e9;     /* fondo verde pastel */
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--color-fondo);
+      color: var(--color-principal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: "Dancing Script", cursive;
+      font-size: 3rem;
+      color: var(--color-principal);
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--color-acento);
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .qr-wrapper {
+      position: relative;
+      background-color: #fff;
+      padding: 20px;
+      border: 6px solid var(--color-acento);
+      border-radius: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      width: 280px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-logo {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    .qr-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: #555;
+      font-style: italic;
+      max-width: 300px;
+    }
+
+    @media (max-width: 400px) {
+      .qr-wrapper {
+        width: 240px;
+        height: 240px;
+      }
+      .qr-logo {
+        width: 52px;
+        height: 52px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ensal’Armelo</h1>
+    <p>Escaneá y elegí tu ensalada</p>
+
+    <div class="qr-wrapper">
+      <div id="qrcode"></div>
+      <div class="qr-logo">
+        <img src="img/logo-sin-fondo-ensalarmelo.png" alt="Logo Ensal’Armelo" />
+      </div>
+    </div>
+
+    <footer>
+      Escaneá este código QR para acceder al menú de ensaladas frescas 🥗
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const url = "menu-ensalarmelo.html"; // Reemplaza con la URL real del menú de Ensal’Armelo
+    new QRCode(document.getElementById("qrcode"), {
+      text: url,
+      width: 240,
+      height: 240,
+      colorDark: "#2e7d32",  // verde oscuro
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+</body>
+</html>

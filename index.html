@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ensal’Armelo - Ensaladas Frescas y Personalizadas</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4CAF50">
+  <meta name="description" content="Ensal’Armelo: Ensaladas frescas y personalizadas para cumpleaños, eventos escolares, reuniones familiares y más. ¡Sabor saludable en cada bocado!">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Ensal’Armelo">
+  <meta name="keywords" content="ensaladas, ensaladas personalizadas, ensaladas para eventos, ensaladas saludables, ensaladas veganas, combos de ensaladas, EnsalArmelo, comidas naturales, ensaladas frescas, catering saludable">
+  <meta property="og:title" content="Ensal’Armelo - Ensaladas frescas para eventos con sabor y salud">
+  <meta property="og:description" content="Ensaladas personalizadas para cumpleaños, eventos escolares, reuniones familiares y celebraciones. ¡Sabores frescos y combos saludables!">
+  <meta property="og:image" content="https://yourdomain.com/ensalarmelo/images/salad-logo.png">
+  <meta property="og:url" content="https://yourdomain.com/ensalarmelo/">
+  <meta property="og:type" content="website">
+  <link rel="shortcut icon" href="img/logo-ensalarmelo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap">
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
+  
+ <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/ensalarmelo.css">
+</head>
+<body>
+    <div id="splash-screen" style="
+      position: fixed; inset: 0; background: #e8f5e9; 
+      display: flex; justify-content: center; align-items: center; 
+      flex-direction: column; z-index: 10001; overflow: hidden;
+      ">
+      <img src="img/logo-sin-fondo-ensalarmelo.png" alt="Logo Ensal’Armelo" class="splash-logo" />
+      <h1 class="splash-text">¡Preparando tu frescura!</h1>
+    </div>
+
+    <style>
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 1; }
+      }
+      @keyframes shine {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+      }
+      .splash-logo {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        animation: pulse 3s infinite;
+        position: relative;
+        overflow: hidden;
+      }
+      .splash-logo::before {
+        content: "";
+        position: absolute;
+        top: 0; left: -100%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+        animation: shine 2.5s linear infinite;
+        pointer-events: none;
+      }
+      .splash-text {
+        margin-top: 25px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2rem;
+        color: #2e7d32;
+        opacity: 0;
+        animation: fadeIn 2s forwards 0.8s;
+      }
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+    </style>
+
+    <section id="main">
+    <header>
+  <nav class="navigation">
+    <div class="chek">
+      <input type="checkbox" id="menu-btn" class="menu-btn">
+      <label for="menu-btn" class="menu-icon">
+        <img src="images/icon-menu.png" alt="Menú" class="img-bar">
+      </label>
+
+      <div class="side-menu">
+        <div class="menu-container">
+          <strong>Menú Principal</strong>
+          <label for="menu-btn" class="close-btn">
+            <img src="images/close-menu.webp" alt="Cerrar" class="img-bar">
+          </label>
+          <ul class="menu">
+            <li><a href="#main">Inicio</a></li>
+            <li><a href="#popular">Menú Base</a></li>
+            <li><a href="#personalizar">Personalizar</a></li>
+            <li><a href="#shopping-banner">Combos</a></li>
+            <li><a href="#envio">Envíos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="https://vicgom892.github.io/licuarmelo/">Visita Licu’Armelo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NUEVO BLOQUE PARA VISTA MÓVIL -->
+    <div class="mobile-header">
+      <a href="#main" class="mobile-logo">
+        <img src="img/logo-sin-fondo-ensalarmelo.png" alt="Ensal’Armelo Logo">
+      </a>
+      <a href="javascript:void(0)" class="cart-icon" onclick="mostrarModalCarrito()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </a>
+    </div>
+<div class="nav-content">
+  <ul class="left-nav">
+    <li><a href="#main">Inicio</a></li>
+    <li><a href="#popular">Menú Base</a></li>
+    <li><a href="#personalizar">Personalizar</a></li>
+    <li><a href="#shopping-banner">Combos</a></li>
+  </ul>
+
+  <a href="#main" class="logo">
+    <img src="img/logo-sin-fondo-ensalarmelo.png" alt="Ensal’Armelo Logo">
+  </a>
+
+  <ul class="right-nav">
+    <li><a href="#envio">Envíos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://vicgom892.github.io/licuarmelo/">Visita Licu’Armelo</a></li>
+  </ul>
+
+  <!-- 🔁 Agregá este carrito acá para escritorio -->
+  <a href="javascript:void(0)" class="cart-icon desktop-cart" onclick="mostrarModalCarrito()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </a>
+</div>
+
+   
+    </div>
+  </nav>
+</header>
+
+        
+        <div class="main-content">
+            <div class="main-content-text">
+                <strong>Ensal’Armelo</strong>
+                <h1>Frescura que se arma <br> Momentos que se comparten</h1>
+                <p>"En Ensal’Armelo, cada ensalada es una creación única, armada con ingredientes frescos y los sabores que amas. Comparte momentos, risas y bienestar con cada bocado, porque aquí no solo mezclamos verduras, ¡creamos experiencias saludables para disfrutar juntos!"</p>
+            </div>
+            <div class="main-content-img">
+                <picture>
+                    <source srcset="img/banner-1.jpg" type="img/jpeg">
+                    <img src="img/banner-1.jpg" alt="Ensalada fresca">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <section id="popular">
+        <h2>🥗 Menú Base - Ensal’Armelo</h2>
+        <p>Las Ensaladas Más Populares</p>
+        <div class="popular-container">
+            <div class="popular-product-container">
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="img/caprese.jpg" alt="Ensalada Clásica">
+                        <span>Nuevo</span>
+                    </div>
+                    <div class="product-box-text">
+                        <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Clásica Verde', 1200)">Clásica Verde 🥬</a>
+                        <p>Lechuga, tomate, pepino y zanahoria con aderezo de limón. Simple, fresca y saludable.</p>
+                        <span class="price">$1200</span>
+                    </div>
+                </div>
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="img/frutilla-menta.jpg" alt="Ensalada César">
+                        <span>Nuevo</span>
+                    </div>
+                    <div class="product-box-text">
+                        <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('César Suprema', 1500)">César Suprema 🥗</a>
+                        <p>Lechuga romana, crutones, parmesano y aderezo César cremoso. Un clásico irresistible.</p>
+                        <span class="price">$1500</span>
+                    </div>
+                </div>
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="img/huevo-cherry.jpg" alt="Ensalada Frutal">
+                        <span>Nuevo</span>
+                    </div>
+                    <div class="product-box-text">
+                        <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Frutal Mix', 1400)">Frutal Mix 🍎</a>
+                        <p>Espinaca, manzana, nueces y queso azul con vinagreta de miel. Dulce y sofisticada.</p>
+                        <span class="price">$1400</span>
+                    </div>
+                </div>
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="img/mix-1.jpg" alt="Ensalada Proteica">
+                        <span>Nuevo</span>
+                    </div>
+                    <div class="product-box-text">
+                        <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Proteica Power', 1600)">Proteica Power 🥚</a>
+                        <p>Pollo grillado, huevo, aguacate y espinaca con aderezo de yogur. Ideal para deportistas.</p>
+                        <span class="price">$1600</span>
+                    </div>
+                </div>
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="img/rucula-queso.jpg" alt="Ensalada Tropical">
+                        <span>Nuevo</span>
+                    </div>
+                    <div class="product-box-text">
+                        <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Tropical Vibes', 1300)">Tropical Vibes 🥭</a>
+                        <p>Lechuga, mango, palta y semillas de chía con aderezo cítrico. Fresca y exótica.</p>
+                        <span class="price">$1300</span>
+                    </div>
+                </div>
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="img/rula-crudo.jpg" alt="Ensalada Mediterránea">
+                        <span>Nuevo</span>
+                    </div>
+                    <div class="product-box-text">
+                        <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Mediterránea', 1450)">Mediterránea 🌿</a>
+                        <p>Tomate, pepino, queso feta, aceitunas y orégano con aderezo de oliva. Sabor del Mediterráneo.</p>
+                        <span class="price">$1450</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personalizar">
+        <h2>🥗 Personalizá tu Ensalada</h2>
+        <p>Creá la ensalada perfecta para tu gusto o evento</p>
+        <div class="personalizar-container">
+            <div class="personalizar-text">
+                <strong>Armá tu ensalada a medida</strong>
+                <p>Elegí tus ingredientes favoritos y crea una ensalada única. Perfecta para dietas veganas, sin gluten o cualquier preferencia.</p>
+                <form id="custom-salad-form">
+                    <h3>1. Elegí tu base ($1500)</h3>
+                    <select name="base" required>
+                        <option value="" disabled selected>Seleccioná una base</option>
+                        <option value="Lechuga">Lechuga</option>
+                        <option value="Espinaca">Espinaca</option>
+                        <option value="Rúcula">Rúcula</option>
+                        <option value="Mix de verdes">Mix de verdes</option>
+                    </select>
+                    <h3>2. Elegí una proteína (opcional, $500)</h3>
+                    <select name="protein">
+                        <option value="" selected>Sin proteína</option>
+                        <option value="Pollo grillado">Pollo grillado</option>
+                        <option value="Huevo duro">Huevo duro</option>
+                        <option value="Atún">Atún</option>
+                        <option value="Tofu">Tofu</option>
+                    </select>
+                    <h3>3. Elegí hasta 3 toppings ($200 c/u)</h3>
+                    <div class="toppings">
+                        <label><input type="checkbox" name="topping" value="Tomate"> Tomate</label>
+                        <label><input type="checkbox" name="topping" value="Pepino"> Pepino</label>
+                        <label><input type="checkbox" name="topping" value="Zanahoria"> Zanahoria</label>
+                        <label><input type="checkbox" name="topping" value="Nueces"> Nueces</label>
+                        <label><input type="checkbox" name="topping" value="Queso feta"> Queso feta</label>
+                        <label><input type="checkbox" name="topping" value="Semillas de chía"> Semillas de chía</label>
+                    </div>
+                    <h3>4. Elegí tu aderezo (gratis)</h3>
+                    <select name="dressing" required>
+                        <option value="" disabled selected>Seleccioná un aderezo</option>
+                        <option value="Limón">Limón</option>
+                        <option value="César">César</option>
+                        <option value="Miel y mostaza">Miel y mostaza</option>
+                        <option value="Oliva y orégano">Oliva y orégano</option>
+                    </select>
+                    <button type="button" onclick="agregarEnsaladaPersonalizada()">Agregar al carrito</button>
+                </form>
+            </div>
+            <div class="personalizar-img">
+                <img src="img/banner-2.jpg" alt="Ensalada personalizada">
+            </div>
+        </div>
+    </section>
+
+    <section id="shopping-banner">
+        <div class="shopping-banner-container">
+            <div class="shopping-banner-text">
+                <strong>Combos Saludables para Compartir</strong>
+                <h3>Ensal’Armelo tiene la mejor opción para cada reunión</h3>
+                <p>Disfrutá de ensaladas frescas y naturales con nuestros combos, diseñados para cumpleaños, eventos escolares y reuniones familiares. ¡Sabor, salud y calidad en cada bocado!</p>
+            </div>
+            <div class="shopping-banner-img">
+                <img src="img/banner-4.jpg" alt="Banner combos">
+            </div>
+        </div>
+    </section>
+
+    <section id="ofertas-familiares">
+        <h2>Ofertas de Combos Ensal’Armelo</h2>
+        <div class="recent-product-container">
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/mix-1.jpg" alt="Combo Mini" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Mini', 10000)">Combo Mini</a>
+                    <p>10 ensaladas individuales a elección. Incluye aderezos y cubiertos, ideal para grupos pequeños.</p>
+                    <span class="price">$10000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Mini', 10000)">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/mixtas.jpg" alt="Combo Familiar" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Familiar', 14000)">Combo Familiar</a>
+                    <p>15 ensaladas variadas con aderezos personalizados. Perfecto para reuniones familiares.</p>
+                    <span class="price">$14000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Familiar', 14000)">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/repollo-zanahoria.jpg" alt="Combo Fiesta" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Fiesta', 18000)">Combo Fiesta</a>
+                    <p>20 ensaladas + 5 porciones de frutas frescas. Presentación eco-friendly para eventos grandes.</p>
+                    <span class="price">$18000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Fiesta', 18000)">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/rula-crudo.jpg" alt="Combo Escolar" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Escolar', 15000)">Combo Escolar</a>
+                    <p>15 ensaladas personalizadas con temática escolar. Ideal para egresos y eventos educativos.</p>
+                    <span class="price">$15000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Escolar', 15000)">Pedir ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ofertas-especiales">
+        <h2>Combos Especiales para Grandes Eventos</h2>
+        <div class="recent-product-container">
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/caprese.jpg" alt="Combo Celebración" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Celebraciones', 22000)">Combo Celebración</a>
+                    <p>25 ensaladas variadas + snacks saludables.</p>
+                    <span class="price">$22000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Celebración', 22000)">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/ravanito.jpg" alt="Combo Premium" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Premium', 25000)">Combo Premium</a>
+                    <p>30 ensaladas + 10 porciones de frutas frescas. Servicio completo para eventos especiales.</p>
+                    <span class="price">$25000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Premium', 25000)">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/remolacha.jpg" alt="Combo Estación" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Estación', 17000)">Combo Estación</a>
+                    <p>20 ensaladas con ingredientes de temporada. Opciones con aderezos variados.</p>
+                    <span class="price">$17000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Estación', 17000)">Pedir ahora</a>
+                </div>
+            </div>
+            <div class="product-box">
+                <div class="product-box-img">
+                    <img src="img/frutilla-menta.jpg" alt="Combo Estación" loading="lazy">
+                    <span>Nuevo</span>
+                </div>
+                <div class="product-box-text">
+                    <a href="javascript:void(0)" class="product-text-title" onclick="agregarAlCarrito('Combo Estación', 17000)">Combo Estación</a>
+                    <p>20 ensaladas con ingredientes de temporada. Opciones con aderezos variados.</p>
+                    <span class="price">$17000</span>
+                    <a href="javascript:void(0)" class="btn-action" onclick="agregarAlCarrito('Combo Estación', 17000)">Pedir ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partner">
+        <img src="img/brocoli.jpg" alt="rúcula">
+        <img src="img/cebolla.jpg" alt="palta">
+        <img src="img/cherry.jpg" alt="cebolla">
+        <img src="img/pepino.jpg" alt="queso feta">
+        <img src="img/zanahoria.jpg" alt="nuez">
+        <img src="img/tomate.jpg" alt="semillas de chía">
+    </section>
+
+    <section id="clientes" style="background:#111111; padding:60px 0;">
+        <div style="text-align:center; margin-bottom:40px;">
+            <h2 style="font-size:2.4rem; font-family:'Playfair+Display', serif; color:#f5f5f5;">Comentarios de Nuestros Clientes</h2>
+            <p style="font-size:1.1rem; color:#f5f5f5; margin: auto;">Descubrí lo que dicen sobre <span class="ensalarmelo-1">Ensal’Armelo</span></p>
+        </div>
+        <div class="carousel-clientes" style="max-width:900px; margin:auto; overflow:hidden; position:relative;">
+            <div class="carousel-track" style="display:flex; animation: scroll 24s linear infinite;">
+                <div style="min-width:100%; box-sizing:border-box; padding:20px; display:flex; flex-direction:column; align-items:center;">
+                    <img src="img/cliente.jpg" alt="Cliente 1" style="width:100px; height:100px; border-radius:50%; object-fit:cover; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+                    <blockquote style="margin-top:20px; font-size:1.1rem; font-style:italic; max-width:600px; color:#f8f8f8;">"La ensalada Tropical Vibes fue un éxito en la reunión familiar. ¡Fresca y deliciosa, todos pidieron más! 🥭"</blockquote>
+                    <span style="margin-top:10px; font-weight:bold; color:#689f38;">— Ana Gómez, 30 años</span>
+                </div>
+                <div style="min-width:100%; box-sizing:border-box; padding:20px; display:flex; flex-direction:column; align-items:center;">
+                    <img src="img/cliente-1.jpg" alt="Cliente 2" style="width:100px; height:100px; border-radius:50%; object-fit:cover; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+                    <blockquote style="margin-top:20px; font-size:1.1rem; font-style:italic; max-width:600px; color:#f8f8f8;">"El Combo Fiesta fue perfecto para el evento escolar. ¡Súper fresco y bien presentado! 🥗"</blockquote>
+                    <span style="margin-top:10px; font-weight:bold; color:#689f38;">— Sofía López, 27 años</span>
+                </div>
+                <div style="min-width:100%; box-sizing:border-box; padding:20px; display:flex; flex-direction:column; align-items:center;">
+                    <img src="img/cliente-2.jpg" alt="Cliente 3" style="width:100px; height:100px; border-radius:50%; object-fit:cover; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+                    <blockquote style="margin-top:20px; font-size:1.1rem; font-style:italic; max-width:600px; color:#f8f8f8;">"La Proteica Power me salvó en el almuerzo. ¡Sana, rica y llenadora! 💪"</blockquote>
+                    <span style="margin-top:10px; font-weight:bold; color:#689f38;">— Juan Pérez, 35 años</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      33.33% { transform: translateX(-100%); }
+      66.66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+    .carousel-clientes:hover .carousel-track {
+      animation-play-state: paused;
+    }
+    </style>
+
+    <section id="envio">
+        <h2>🥗 Pedílo tranquilo - <span class="ensalarmelo">Ensal’Armelo</span> - Te lo Acerca</h2>
+        <div class="services">
+            <div class="service-box">
+                <span>🛵</span>
+                <h3>Envíos sin cargo</h3>
+                <span>¡Delivery gratuito en moto, bici o auto!</span>
+                <p>Elige tu combo y te lo llevamos sin costo adicional en zonas cercanas. Rápido, seguro y sostenible.</p>
+            </div>
+            <div class="service-box">
+                <span>🤝</span>
+                <h3>Atención personalizada</h3>
+                <span>Te asesoramos según tu evento</span>
+                <p>Ya sea para un cumpleaños, evento escolar o reunión, te ayudamos a elegir el combo perfecto.</p>
+            </div>
+            <div class="service-box">
+                <span>🛎️</span>
+                <h3>Atención al público</h3>
+                <span>Consultas ágiles por WhatsApp o redes</span>
+                <p>Hacemos que tu pedido sea fácil y claro. Estamos disponibles para lo que necesites.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>📩 Contáctanos</h2>
+        <p>Envíanos tu pedido, consulta, sugerencia o queja. ¡Estamos para ayudarte!</p>
+        <div class="contacto-container">
+            <form id="contact-form">
+                <label for="contact-name">Nombre:</label>
+                <input type="text" id="contact-name" placeholder="Tu nombre" required>
+                <label for="contact-phone">Teléfono:</label>
+                <input type="text" id="contact-phone" placeholder="11xxxxxxxx" required>
+                <label for="contact-type">Tipo de mensaje:</label>
+                <select id="contact-type" required>
+                    <option value="" disabled selected>Selecciona un tipo</option>
+                    <option value="Pedir">Pedir</option>
+                    <option value="Info">Información</option>
+                    <option value="Sugerencia">Sugerencia</option>
+                    <option value="Queja">Queja</option>
+                </select>
+                <label for="contact-message">Mensaje:</label>
+                <textarea id="contact-message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="download" style="background:#f5f5f5; padding: 40px;">
+        <div class="download-container" style="margin:auto; display:flex; justify-content:space-around; align-items: center; flex-wrap:wrap; gap: 20px;">
+            <div class="download-img" style="max-width:200px;">
+                <img src="img/logo-sin-fondo-ensalarmelo.png" alt="App Ensal’Armelo" style="width:100%; border-radius: 20px; box-shadow:0 0 15px 5px rgba(0,0,0,0.15);">
+            </div>
+            <div class="download-text" style="max-width: 300px;">
+                <h3 style="font-size:2rem; margin-bottom: 15px; color:#2c2c2c;">Descarga la app exclusiva</h3>
+                <p style="font-size:1.1rem; margin-bottom: 25px; color:#444;">
+                    Accede a promociones exclusivas, pedidos rápidos y eventos VIP.  
+                    Descarga nuestra app disponible en Google Play y App Store.
+                </p>
+                <div class="download-btns" style="display:flex; gap:20px;">
+                    <button id="installBtnTradicional" style="display: none; background: #A5D6A7;">
+                        <p class="button">Descarga La APP</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background:#f8f8f8; color:#689f38; padding: 30px 20px; text-align:center; font-size:0.9rem;">
+        <div class="footer-container">
+            <p>© 2025 Ensal’Armelo. Todos los derechos reservados.</p>
+            <p><a href="https://vicgom892.github.io/licuarmelo/" style="color:#689f38; text-decoration:underline;">Visita Licu’Armelo para licuados frescos</a></p>
+        </div>
+    </footer>
+
+    <div id="cart-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 10000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px; border-radius: 10px; max-width: 400px; width: 90%;">
+            <h3 style="margin-bottom: 15px;">Tu carrito</h3>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: $0</p>
+            <label for="nombreCliente">Nombre:</label>
+            <input type="text" id="nombreCliente" placeholder="Tu nombre" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <label for="telefonoCliente">Teléfono:</label>
+            <input type="text" id="telefonoCliente" placeholder="11xxxxxxxx" style="width: 100%; padding: 8px; margin-bottom: 20px;">
+            <button onclick="enviarPedidoWhatsApp()" style="padding: 10px 20px; background: #4caf50; color: white; border: none; border-radius: 5px;">Enviar por WhatsApp</button>
+            <button onclick="cerrarModalCarrito()" style="padding: 10px 20px; background: #888; color: white; border: none; border-radius: 5px; margin-left: 10px;">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if (splash) {
+                    splash.style.transition = 'opacity 0.7s ease';
+                    splash.style.opacity = '0';
+                    setTimeout(() => splash.style.display = 'none', 700);
+                }
+            }, 3500);
+        });
+    </script>
+    <script src="js/instalar.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/ensalarmelo.js"></script>
+</body>
+</html>

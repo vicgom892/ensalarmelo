@@ -1,0 +1,270 @@
+/* Reset básico */
+:root {
+    --main-color: #4CAF50; /* Verde fresco */
+    --main-light: #A5D6A7; /* Verde claro */
+    --main-dark: #2E7D32; /* Verde oscuro */
+    --product-bg-color: #E8F5E9; /* Verde muy claro */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #faf3ff;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #2E7D32;
+}
+
+.slogan {
+  font-style: italic;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Menú en columnas (desktop) */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.menu-column {
+  flex: 1 1 400px;
+}
+
+.menu-column h2 {
+  background: #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background: #f9f1ff;
+  padding: 10px;
+  margin: 10px 0;
+  border-left: 5px solid #4CAF50;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+ul li span {
+  float: right;
+  font-weight: bold;
+}
+
+form {
+  background: #f0e6ff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.ingredientes label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.precio {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Responsive para móviles */
+@media screen and (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .slogan {
+    font-size: 0.9rem;
+  }
+
+  .menu-column {
+    flex: 1 1 100%;
+  }
+
+  ul li {
+    font-size: 0.95rem;
+  }
+
+  .precio {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-content input:invalid {
+  border: 2px solid red;
+}
+
+.modal-content input:valid {
+  border: 2px solid green;
+}
+
+.modal-content input:focus {
+  outline: none;
+  box-shadow: 0 0 4px #a64ac9;
+}
+/* Contenedor visible en la parte inferior */
+.efecto-inferior {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  z-index: 10; /* por encima del fondo */
+  pointer-events: none;
+}
+
+/* Copas con animación sutil */
+.efecto-inferior .copa {
+  font-size: 2.2rem;
+  opacity: 0.85;
+  animation: flotarCopa 3s ease-in-out infinite;
+  color: #2E7D32;
+}
+
+@keyframes flotarCopa {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Burbujas que suben desde abajo */
+.burbuja {
+  position: fixed;
+  bottom: 0;
+  background: radial-gradient(circle, #2E7D32 60%, transparent 80%);
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: subirBurbuja 10s linear infinite;
+  pointer-events: none;
+  z-index: 9;
+}
+
+@keyframes subirBurbuja {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.15;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.4);
+    opacity: 0;
+  }
+}

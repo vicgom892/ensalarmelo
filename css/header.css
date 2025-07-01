@@ -1,0 +1,295 @@
+ /* Variables CSS para colores consistentes */
+:root {
+    --main-color: #4CAF50; /* Verde principal */
+    --text-color: #333; /* Color de texto principal */
+    --background-color: #fff; /* Fondo blanco */
+    --hover-color: #689f38; /* Verde más oscuro para hovers */
+}
+#popular,
+#personalizar,
+#shopping-banner,
+#ofertas-especiales,
+#parter,
+#contacto,
+#clientes{
+    padding-top: 6.5rem;
+}
+/* Header */
+header {
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: navanimation 0.6s ease;
+    padding: 5px;
+}
+
+@keyframes navanimation {
+    0% { top: -100%; }
+    100% { top: 0; }
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+}
+
+/* Logo */
+.logo {
+    max-width: 180px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 60%;
+    height: auto;
+}
+
+/* Navegación en desktop */
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.left-nav, .right-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.left-nav li, .right-nav li {
+    margin: 0 15px;
+}
+
+.left-nav a, .right-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.left-nav a:hover, .right-nav a:hover {
+    color: var(--hover-color);
+}
+
+/* Ícono del carrito */
+.cart-icon {
+    position: relative;
+    color: var(--text-color);
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon i {
+    font-size: 1.8rem;
+}
+
+#cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+/* Menú hamburguesa */
+.chek {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon .img-bar {
+    width: 30px;
+    height: 30px;
+}
+
+/* Menú lateral (móvil) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: var(--background-color);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    z-index: 1001;
+}
+
+#menu-btn:checked ~ .side-menu {
+    right: 0;
+}
+
+.side-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    display: none;
+}
+
+#menu-btn:checked ~ .side-menu::before {
+    display: block;
+}
+
+.menu-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu strong {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 5px 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-btn .img-bar {
+    width: 25px;
+    height: 25px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 15px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #f3f3f3;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--hover-color);
+}
+.mobile-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #fff;
+}
+
+.mobile-header .cart-icon,
+.mobile-header .menu-icon{
+  height: 30px;
+}
+
+.mobile-header .mobile-logo img {
+  height: 70px;
+}
+
+/* Mostrar solo en móviles */
+@media (max-width: 768px) {
+  .nav-content {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    width: 60%;
+  }
+  .mobile-header{
+    padding: 0;
+  }
+}
+
+/* Media Query para móviles */
+@media (max-width: 768px) {
+    .nav-content {
+        display: none;
+    }
+    input{
+        display: none;
+    }
+    .chek {
+        display: block;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+}
+
+/* Estilos adicionales para otras secciones (para evitar conflictos) */
+.main-content {
+    margin-top: 100px; /* Ajusta según la altura del header */
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 80px; /* Ajusta para móviles */
+    }
+}
+/* Mostrar carrito solo en desktop */
+.desktop-cart {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktop-cart {
+    display: none;
+  }
+  .navigation{
+    padding: 0;
+  }
+}

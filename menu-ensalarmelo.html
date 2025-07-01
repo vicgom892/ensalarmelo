@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ensal’Armelo - Menú de Ensaladas</title>
+  <link rel="stylesheet" href="css/menu-ensalarmelo.css">
+  <link rel="shortcut icon" href="img/logo-sin-fondo-ensalarmelo.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="img/logo-sin-fondo-ensalarmelo.png" alt="Ensal’Armelo Logo" class="logo">
+      <h1>Ensal’Armelo</h1>
+      <p class="slogan">¡Frescura en cada bocado!</p>
+    </header>
+
+    <main>
+      <section class="menu">
+        <div class="menu-column">
+          <h2>Nuestros Combos</h2>
+          <ul>
+            <li>
+              <strong>Clásica Verde</strong> <span>$1200</span><br>
+              Lechuga, tomate, pepino y zanahoria con aderezo de limón<br>
+              <button onclick="pedirCombo('Clásica Verde', 'Lechuga, tomate, pepino, zanahoria con aderezo de limón', 1200)">Pedir por WhatsApp</button>
+            </li>
+            <li>
+              <strong>César Suprema</strong> <span>$1500</span><br>
+              Lechuga romana, crutones, parmesano y aderezo César<br>
+              <button onclick="pedirCombo('César Suprema', 'Lechuga romana, crutones, parmesano y aderezo César', 1500)">Pedir por WhatsApp</button>
+            </li>
+            <li>
+              <strong>Frutal Mix</strong> <span>$1400</span><br>
+              Espinaca, manzana, nueces y queso azul con vinagreta de miel<br>
+              <button onclick="pedirCombo('Frutal Mix', 'Espinaca, manzana, nueces, queso azul con vinagreta de miel', 1400)">Pedir por WhatsApp</button>
+            </li>
+            <li>
+              <strong>Proteica Power</strong> <span>$1600</span><br>
+              Pollo grillado, huevo, aguacate y espinaca con aderezo de yogur<br>
+              <button onclick="pedirCombo('Proteica Power', 'Pollo grillado, huevo, aguacate, espinaca con aderezo de yogur', 1600)">Pedir por WhatsApp</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-column">
+          <h2>¡Armá la tuya!</h2>
+          <form id="custom-form" onsubmit="enviarPedido(event)">
+            <label>Base (1):</label>
+            <select id="baseEnsalada" required>
+              <option value="">Seleccioná una base</option>
+              <option>Lechuga</option>
+              <option>Espinaca</option>
+              <option>Rúcula</option>
+              <option>Mix de verdes</option>
+            </select>
+            
+            <label>Proteína (opcional):</label>
+            <select id="proteina">
+              <option value="">Sin proteína</option>
+              <option>Pollo grillado</option>
+              <option>Huevo duro</option>
+              <option>Atún</option>
+              <option>Tofu</option>
+            </select>
+            
+            <label>Toppings (hasta 3):</label>
+            <div class="ingredientes">
+              <label><input type="checkbox" value="Tomate"> Tomate</label>
+              <label><input type="checkbox" value="Pepino"> Pepino</label>
+              <label><input type="checkbox" value="Zanahoria"> Zanahoria</label>
+              <label><input type="checkbox" value="Nueces"> Nueces</label>
+              <label><input type="checkbox" value="Queso feta"> Queso feta</label>
+              <label><input type="checkbox" value="Semillas de chía"> Semillas de chía</label>
+            </div>
+            
+            <label>Aderezo:</label>
+            <select id="aderezo" required>
+              <option value="">Seleccioná un aderezo</option>
+              <option>Limón</option>
+              <option>César</option>
+              <option>Miel y mostaza</option>
+              <option>Oliva y orégano</option>
+            </select>
+            
+            <p class="precio">Precio: <span id="precio">$1500</span> (base incluida, +$200 por topping, +$500 por proteína)</p>
+            <button type="submit">Pedir por WhatsApp</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="pedido-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Confirmar pedido</h2>
+      <label>Tu nombre:</label>
+      <input type="text" id="nombreCliente" placeholder="Ej: Sofía" required>
+      <label>Tu número de teléfono:</label>
+      <input type="tel" id="telefonoCliente" placeholder="Ej: 11 2233 4455" required>
+      <div id="resumenPedido"></div>
+      <button onclick="confirmarPedido()">Confirmar pedido por WhatsApp</button>
+      <button onclick="cerrarModal()">Cancelar</button>
+    </div>
+  </div>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
