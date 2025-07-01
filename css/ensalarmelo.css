@@ -512,13 +512,6 @@ p {
 
 .download-text p {
     font-size: 1.1rem;
-    margin-bottom: 25px;
-    color: #444;
-}
-.download-text .button{
-    font-size: 10px;
-    padding: 0px 10px;
-    color: #ffff;
 }
 
 /* Footer */
@@ -553,7 +546,25 @@ footer {
     margin: 10px 0;
     color: var(--main-dark);
 }
+#installBtnTradicional {
+    display: inline-block;
+    padding: 10px;
+    background: var(--main-color);
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
+#installBtnTradicional:hover {
+    background: var(--main-dark);
+    color: #fff;
+}
+
+.download-text .button {
+    color: #fff;
+}
 /* Responsive */
 @media(max-width:1200px) {
     ul {
@@ -683,4 +694,3 @@ footer {
         font-size: 2rem;
     }
 }
-

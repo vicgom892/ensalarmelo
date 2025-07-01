@@ -5,18 +5,13 @@ const ASSETS_TO_CACHE = [
   '/menu-ensalarmelo.html',
   '/qr-ensalarmelo.html',
   '/offline.html',
-  '/css/ensalarmelo.css',
-  '/css/menu-ensalarmelo.css',
-  '/css/header.css',
+  '/css/style.css',
   '/manifest.json',
-  '/js/app.js',
-  '/js/script.js',
-  '/js/ensalarmelo.js',
-  '/js/instalar.js',
+  '/js/main.js',
   '/icons/icon-1-192x192.png',
   '/icons/icon-2-512x512.png',
-  '/images/icon-menu.png',
-  '/images/close-menu.webp'
+  '/img/icon-menu.png',
+  '/img/close-menu.webp'
 ];
 
 self.addEventListener('install', event => {
