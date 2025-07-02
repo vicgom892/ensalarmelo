@@ -567,7 +567,6 @@ header {
     height: 20px;
     margin-right: 10px;
     vertical-align: middle;
-    -webkit-appearance: checkbox;
     touch-action: manipulation;
 }
 
@@ -777,7 +776,6 @@ footer {
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    -webkit-appearance: none;
     touch-action: manipulation;
 }
 
