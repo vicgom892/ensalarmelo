@@ -25,8 +25,7 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
   
- <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/ensalarmelo.css">
+ <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="splash-screen" style="
@@ -536,14 +535,14 @@
             <div id="cart-items"></div>
             <p id="cart-total">Total: $0</p>
             <label for="nombreCliente">Nombre:</label>
-            <input type="text" id="nombreCliente" placeholder="Tu nombre" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+            <input type="text" id="nombreCliente" placeholder="Tu nombre" autocomplete="name" style="width: 100%; padding: 8px; margin-bottom: 10px;">
             <label for="telefonoCliente">Teléfono:</label>
-            <input type="text" id="telefonoCliente" placeholder="11xxxxxxxx" style="width: 100%; padding: 8px; margin-bottom: 20px;">
+            <input type="tel" id="telefonoCliente" placeholder="11xxxxxxxx" autocomplete="tel" style="width: 100%; padding: 8px; margin-bottom: 20px;">
             <button onclick="enviarPedidoWhatsApp()" style="padding: 10px 20px; background: #4caf50; color: white; border: none; border-radius: 5px;">Enviar por WhatsApp</button>
-            <button onclick="cerrarModalCarrito()" style="padding: 10px 20px; background: #888; color: white; border: none; border-radius: 5px; margin-left: 10px;">Cancel</button>
+            <button onclick="cerrarModalCarrito()" style="padding: 10px 20px; background: #888; color: white; border: none; border-radius: 5px; margin-top: 3px;">Cancel</button>
+            <button onclick="vaciarCarrito()" style="padding: 10px 20px; background: #ff4444; color: white; border: none; border-radius: 5px; margin-top: 10px;">Vaciar Carrito</button>
         </div>
     </div>
-
     <script>
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -556,8 +555,7 @@
             }, 3500);
         });
     </script>
-    <script src="js/instalar.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/ensalarmelo.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/flotando.js"></script>
 </body>
 </html>
